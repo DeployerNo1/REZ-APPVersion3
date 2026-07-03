@@ -3,7 +3,7 @@
   "short_name": "Rez-App",
   "description": "Rezepte, Wochenplan & Einkaufsliste",
   "start_url": "/rez-appversion3/",
-  "scope": "/rez-app/",
+  "scope": "/rez-appversion3/",
   "display": "standalone",
   "background_color": "#FDFAF5",
   "theme_color": "#2D4A3E",
