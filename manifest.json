@@ -9,9 +9,9 @@
   "theme_color": "#2D4A3E",
   "orientation": "portrait-primary",
   "icons": [
-    { "src": "/rez-app/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "/rez-app/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
-    { "src": "/rez-app/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-    { "src": "/rez-app/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    { "src": "/REZ-APPVersion3/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/REZ-APPVersion3/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "/REZ-APPVersion3/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/REZ-APPVersion3/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ]
 }
