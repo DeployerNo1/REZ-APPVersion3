@@ -2,16 +2,16 @@
   "name": "Rez-App – dein geniales Kochbuch",
   "short_name": "Rez-App",
   "description": "Rezepte, Wochenplan & Einkaufsliste",
-  "start_url": "/REZ-APPVersion3/",
+  "start_url": "/rez-appversion3/",
   "scope": "/rez-app/",
   "display": "standalone",
   "background_color": "#FDFAF5",
   "theme_color": "#2D4A3E",
   "orientation": "portrait-primary",
   "icons": [
-    { "src": "/REZ-APPVersion3/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "/REZ-APPVersion3/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
-    { "src": "/REZ-APPVersion3/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-    { "src": "/REZ-APPVersion3/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    { "src": "/rez-appversion3/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/rez-appversion3/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "/rez-appversion3/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/rez-appversion3/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ]
 }
