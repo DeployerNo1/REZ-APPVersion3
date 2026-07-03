@@ -2,7 +2,7 @@
   "name": "Rez-App – dein geniales Kochbuch",
   "short_name": "Rez-App",
   "description": "Rezepte, Wochenplan & Einkaufsliste",
-  "start_url": "/rez-app/",
+  "start_url": "/REZ-APPVersion3/",
   "scope": "/rez-app/",
   "display": "standalone",
   "background_color": "#FDFAF5",
