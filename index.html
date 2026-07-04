@@ -2,8 +2,8 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<!-- Rez-App · created by W. Spiegelsberger -->
-<meta name="author" content="W. Spiegelsberger">
+<!-- Rez-App · created by DeployerNo1 -->
+<meta name="author" content="DeployerNo1">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta name="theme-color" content="#2D4A3E">
 <meta name="mobile-web-app-capable" content="yes">
@@ -125,7 +125,7 @@ header .bi{color:#fff;border-color:rgba(255,255,255,.7);background:rgba(255,255,
     </div>
   </header>
   <main><div class="inner" id="content"></div>
-    <div style="text-align:center;font-size:10px;color:rgba(45,74,62,.4);padding:2px 0 10px;letter-spacing:.5px;user-select:none;">created by W. Spiegelsberger</div>
+    <div style="text-align:center;font-size:10px;color:rgba(45,74,62,.4);padding:2px 0 10px;letter-spacing:.5px;user-select:none;">created by DeployerNo1</div>
   </main>
   <nav>
     <button class="nb on" id="nt-rezepte" onclick="goTab('rezepte')"><span class="ic">📋</span>Rezepte</button>
@@ -199,7 +199,7 @@ header .bi{color:#fff;border-color:rgba(255,255,255,.7);background:rgba(255,255,
         <p style="font-size:11px;color:var(--mut);margin-top:6px;" id="qr-url"></p>
       </div>
     </div>
-    <p style="font-size:11px;color:var(--mut);margin-top:10px;text-align:center;">Daten lokal im Browser gespeichert (localStorage)<br><span style="font-size:10px;opacity:.7;"> · created by W. Spiegelsberger</span></p>
+    <p style="font-size:11px;color:var(--mut);margin-top:10px;text-align:center;">Daten lokal im Browser gespeichert (localStorage)<br><span style="font-size:10px;opacity:.7;"> · created by DeployerNo1</span></p>
   </div>
 </div>
 
@@ -470,7 +470,7 @@ function rezepteHTML() {
       <p class="sub">${st.rezepte.length} Rezepte gespeichert</p>
     </div>
     <div style="display:flex;gap:8px;flex-wrap:wrap;">
-      <input class="fi" style="width:180px;" placeholder="🔍 Suchen…" value="${esc(rFilter)}" oninput="rFilter=this.value;render()">
+      <input id="recipe-search" class="fi" style="width:180px;" placeholder="🔍 Suchen…" value="${esc(rFilter)}" oninput="rFilter=this.value;render()">
       <button class="bp" onclick="openForm(null)">+ Neues Rezept</button>
     </div>
   </div>
@@ -598,7 +598,7 @@ function renderForm() {
         </div>
         <div>
           <label class="fl">Kategorie</label>
-          <select class="fsel" onchange="ef.kategorie=this.value">
+          <select id="recipe-category" class="fsel" onchange="ef.kategorie=this.value">
             ${KATS.map(k => `<option${ef.kategorie===k?' selected':''}>${k}</option>`).join('')}
           </select>
         </div>
@@ -616,13 +616,13 @@ function renderForm() {
           <label class="fl">Portionen <span style="font-weight:400;text-transform:none;">(skaliert Mengen automatisch)</span></label>
           <div style="display:flex;align-items:center;gap:8px;">
             <button type="button" class="bs sm" onclick="scalePortionen((ef.portionen||4)-1);renderForm()" style="padding:8px 12px !important;">−</button>
-            <input class="fi" type="number" min="1" value="${ef.portionen||4}" style="text-align:center;" oninput="scalePortionen(this.value)">
+            <input id="recipe-portions" class="fi" type="number" min="1" value="${ef.portionen||4}" style="text-align:center;" oninput="scalePortionen(this.value)">
             <button type="button" class="bs sm" onclick="scalePortionen((ef.portionen||4)+1);renderForm()" style="padding:8px 12px !important;">+</button>
           </div>
         </div>
         <div class="full">
           <label class="fl">Zubereitungszeit</label>
-          <input class="fi" value="${esc(ef.dauer||'')}" placeholder="z.B. 30 min" oninput="ef.dauer=this.value">
+          <input id="recipe-duration" class="fi" value="${esc(ef.dauer||'')}" placeholder="z.B. 30 min" oninput="ef.dauer=this.value">
         </div>
       </div>
 
@@ -636,7 +636,7 @@ function renderForm() {
 
       <div class="fg">
         <label class="fl">Zubereitung</label>
-        <textarea class="fta" oninput="ef.anleitung=this.value">${esc(ef.anleitung||'')}</textarea>
+        <textarea id="recipe-instructions" class="fta" oninput="ef.anleitung=this.value">${esc(ef.anleitung||'')}</textarea>
       </div>
 
       <div style="background:var(--gl);border-radius:10px;padding:14px;margin-bottom:14px;">
@@ -1117,7 +1117,7 @@ function renderPicker() {
         <div style="font-family:'Playfair Display',serif;font-size:20px;color:var(--green);font-weight:700;">${mealInfo.icon} ${mealInfo.label} — ${DAYS[picDay]}</div>
         <button class="mc" onclick="document.getElementById('pick-ov').remove()">✕</button>
       </div>
-      <input class="fi" style="margin-bottom:12px;" placeholder="🔍 Suchen…" value="${esc(picFilter)}" oninput="picFilter=this.value;renderPicker()" autofocus>
+      <input id="picker-search" class="fi" style="margin-bottom:12px;" placeholder="🔍 Suchen…" value="${esc(picFilter)}" oninput="picFilter=this.value;renderPicker()" autofocus>
       <div style="max-height:380px;overflow-y:auto;display:flex;flex-direction:column;gap:7px;">
         ${list.map(r => `
           <div onclick="pickMeal('${r.id}')" style="display:flex;justify-content:space-between;align-items:center;padding:11px 14px;background:#F7F3EC;border-radius:8px;cursor:pointer;border:1px solid transparent;"
@@ -1377,7 +1377,7 @@ function zutatenHTML() {
         <p class="sub">${Object.keys(db).length} Zutaten gespeichert</p>
       </div>
       <div style="display:flex;gap:8px;flex-wrap:wrap;">
-        <input class="fi" style="width:180px;" placeholder="🔍 Suchen…" value="${esc(zFilter)}"
+       <input id="ingredients-search" class="fi" style="width:180px;" placeholder="🔍 Suchen…" value="${esc(zFilter)}" oninput="zFilter=this.value;render()">
           oninput="zFilter=this.value;render()">
         <button class="bp" onclick="openZutatEdit(null)">+ Neue Zutat</button>
       </div>
