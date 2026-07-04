@@ -1,5 +1,5 @@
 const CV = 'kochbuch-v5';
-const ASSETS = ['/rez-app/', '/rez-appversion3/index.html', '/REZ-APPVersion3/manifest.json'];
+const ASSETS = ['/rez-appversion3/', '/rez-appversion3/index.html', '/rez-appversion3/manifest.json'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CV).then(c => c.addAll(ASSETS).catch(()=>{})));
